@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'AdWinX_Example' do
+  pod 'AdWinX', :path => '../'
+
+  target 'AdWinX_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
