@@ -26,17 +26,23 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'mumabinggan' => 'mumabinggan@163.com' }
   s.source           = { :git => 'https://github.com/mumabinggan/AdWinX.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  # s.social_media_url  = 'https://twitter.com/<TWITHUB_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '12.0'
 
-  s.source_files = 'AdWinX/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'AdWinX' => ['AdWinX/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  # 聚合核心（本 pod 仅含 Core）：
+  # 数据模型 / 配置体系 / 拍卖引擎 / 统一入口 / Adapter 自动发现注册，零 ADN SDK 依赖。
+  # 各 ADN 的 Adapter 在独立 pod 中（AdWinX-CSJ / AdWinX-GDT / AdWinX-Sigmob / AdWinX-Baidu），
+  # 接入方按需组合：
+  #   pod 'AdWinX/Core'
+  #   pod 'AdWinX-CSJ'
+  #   pod 'AdWinX-Baidu'
+  # 装了哪些 ADN 的 Adapter，setupSDK 时就自动注册并初始化哪些，无需手动 register。
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'Classes/*.h', 'Classes/{Core,Protocol,Engine,Manager}/**/*'
+    # 内置兜底配置等资源，单独打 bundle 避免与接入方资源冲突
+    ss.resource_bundles = {
+      'AdWinX' => ['Assets/**/*']
+    }
+  end
 end

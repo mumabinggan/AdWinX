@@ -1,13 +1,59 @@
-use_frameworks!
+use_frameworks! :linkage => :static
 
-platform :ios, '10.0'
+platform :ios, '12.0'
+
+# ============ 源码 / 二进制切换 ============
+# false：日常开发，AdWinX 以源码接入（可断点调试）
+# true ：验证打包产物，AdWinX 以 Binary/ 下的 xcframework 接入（模拟业务方接入形态）
+# 改完必须重跑 pod install 才生效；验证完务必改回 false 并再次 pod install！
+use_binary = true
+# ==========================================
 
 target 'AdWinX_Example' do
-  pod 'AdWinX', :path => '../'
+  if use_binary
+    puts '👉 当前使用【二进制】AdWinX（来自 Binary/，验证打包产物形态）'
+    pod 'AdWinX/Core', :podspec => '../Binary/AdWinX/AdWinX.podspec'
+    pod 'AdWinX-CSJ',  :podspec => '../Binary/AdWinX-CSJ/AdWinX-CSJ.podspec'
+    pod 'AdWinX-GDT',  :podspec => '../Binary/AdWinX-GDT/AdWinX-GDT.podspec'
+    pod 'AdWinX-Sigmob', :podspec => '../Binary/AdWinX-Sigmob/AdWinX-Sigmob.podspec'
+    pod 'AdWinX-Baidu', :podspec => '../Binary/AdWinX-Baidu/AdWinX-Baidu.podspec'
+  else
+    puts '👉 当前使用【源码】AdWinX（日常开发调试）'
+    # 每个 pod 自包含目录（podspec + Classes 同居），与 Binary/ 产物布局对称；
+    # 正式接入改为 pod 'AdWinX/Core' + pod 'AdWinX-CSJ' 等版本引用
+    pod 'AdWinX/Core', :path => '../AdWinX'
+    pod 'AdWinX-CSJ', :path => '../AdWinX-CSJ'
+    pod 'AdWinX-GDT', :path => '../AdWinX-GDT'
+    pod 'AdWinX-Sigmob', :path => '../AdWinX-Sigmob'
+    pod 'AdWinX-Baidu', :path => '../AdWinX-Baidu'
+  end
+
+  # 三方 SDK 版本由各 Adapter podspec 约束传递带入，无需在此重复声明；
+  # 如需钉死某个验证过的组合可显式声明，交集生效，如：
+  # pod 'Ads-CN', '7.7.0.7'
+
+  pod 'Masonry'
 
   target 'AdWinX_Tests' do
     inherit! :search_paths
 
-    
+
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+    end
+  end
+
+  Dir.glob(File.join(installer.sandbox.root.to_s, 'Target Support Files/**/*.xcconfig')).each do |path|
+    contents = File.read(path)
+    unless contents.match?(/^EXCLUDED_ARCHS\[sdk=iphonesimulator\*\] = arm64$/)
+      contents << "\nEXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64\n"
+    end
+    File.write(path, contents)
   end
 end

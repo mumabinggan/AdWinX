@@ -1,6 +1,10 @@
 # macOS
 .DS_Store
 
+# AdWinX 打包产物（Package/build.sh 输出，上传 GitHub Release 托管，不进 git）
+Binary/
+Package/.build/
+
 # Xcode
 build/
 *.pbxuser

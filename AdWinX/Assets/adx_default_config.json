@@ -1,0 +1,392 @@
+{
+  "configVersion": 12,
+  "logLevel": 2,
+  "adnApps": {
+    "GDT": { "appId": "1219134196" },
+    "CSJ": { "appId": "5431421" },
+    "Sigmob": { "appId": "81230", "appKey": "683ddbddb6f99627" },
+    "Baidu": { "appId": "ca18a163" }
+  },
+  "slots": [
+    {
+      "slotName": "splash_main",
+      "adType": "splash",
+      "bidTimeout": 3.5,
+      "totalTimeout": 5,
+      "waterfallTimeout": 5,
+      "adSources": [
+        {
+          "sourceId": "gdt_bid",
+          "adnName": "GDT",
+          "runtimeMode": "bidding",
+          "floorEcpm": 0,
+          "timeout": 5,
+          "placementId": "2395092167243073"
+        },
+        {
+          "sourceId": "baidu_bid",
+          "adnName": "Baidu",
+          "runtimeMode": "bidding",
+          "floorEcpm": 0,
+          "timeout": 5,
+          "placementId": "20155634"
+        },
+        {
+          "sourceId": "csj_w70",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 70,
+          "realEcpm": 70,
+          "priority": 2,
+          "timeout": 5,
+          "placementId": "897969427"
+        },
+        {
+          "sourceId": "sigmob_w70",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 70,
+          "realEcpm": 70,
+          "priority": 1,
+          "timeout": 5,
+          "placementId": "sp1041c8437f91"
+        },
+        {
+          "sourceId": "csj_w50",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 50,
+          "realEcpm": 50,
+          "priority": 2,
+          "timeout": 5,
+          "placementId": "898120267"
+        },
+        {
+          "sourceId": "sigmob_w50",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 50,
+          "realEcpm": 50,
+          "priority": 1,
+          "timeout": 5,
+          "placementId": "sp1041fee84c2f"
+        },
+        {
+          "sourceId": "csj_w30",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 30,
+          "realEcpm": 30,
+          "priority": 2,
+          "timeout": 5,
+          "placementId": "898121066"
+        },
+        {
+          "sourceId": "sigmob_w30",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 30,
+          "realEcpm": 30,
+          "priority": 1,
+          "timeout": 5,
+          "placementId": "sp1041feeab049"
+        },
+        {
+          "sourceId": "csj_w0",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 0,
+          "realEcpm": 0,
+          "priority": 2,
+          "timeout": 5,
+          "placementId": "898121067"
+        },
+        {
+          "sourceId": "sigmob_w0",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 0,
+          "realEcpm": 0,
+          "priority": 1,
+          "timeout": 5,
+          "placementId": "sp104029627d6e"
+        }
+      ]
+    },
+    {
+      "slotName": "reward_main",
+      "adType": "reward_video",
+      "bidTimeout": 2,
+      "totalTimeout": 6,
+      "waterfallTimeout": 6,
+      "adSources": [
+        {
+          "sourceId": "gdt_rw_bid",
+          "adnName": "GDT",
+          "runtimeMode": "bidding",
+          "floorEcpm": 0,
+          "timeout": 6,
+          "placementId": "5385493127546540"
+        },
+        {
+          "sourceId": "baidu_rw_bid",
+          "adnName": "Baidu",
+          "runtimeMode": "bidding",
+          "floorEcpm": 0,
+          "timeout": 6,
+          "placementId": "20204536"
+        },
+        {
+          "sourceId": "sigmob_rw70",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 70,
+          "realEcpm": 70,
+          "priority": 1,
+          "timeout": 6,
+          "placementId": "sp10432ffe8928"
+        },
+        {
+          "sourceId": "csj_rw70",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 70,
+          "realEcpm": 70,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987908506"
+        },
+        {
+          "sourceId": "sigmob_rw50",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 50,
+          "realEcpm": 50,
+          "priority": 1,
+          "timeout": 6,
+          "placementId": "sp1041fee3c77e"
+        },
+        {
+          "sourceId": "csj_rw50",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 50,
+          "realEcpm": 50,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987908505"
+        },
+        {
+          "sourceId": "sigmob_rw30",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 30,
+          "realEcpm": 30,
+          "priority": 1,
+          "timeout": 6,
+          "placementId": "sp104330029921"
+        },
+        {
+          "sourceId": "csj_rw30",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 30,
+          "realEcpm": 30,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987908504"
+        },
+        {
+          "sourceId": "sigmob_rw0",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 0,
+          "realEcpm": 0,
+          "priority": 1,
+          "timeout": 6,
+          "placementId": "sp1040295c721b"
+        },
+        {
+          "sourceId": "csj_rw0",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 0,
+          "realEcpm": 0,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "986908199"
+        }
+      ]
+    },
+    {
+      "slotName": "interstitial_main",
+      "adType": "interstitial",
+      "bidTimeout": 2,
+      "totalTimeout": 6,
+      "waterfallTimeout": 6,
+      "adSources": [
+        {
+          "sourceId": "gdt_it_bid",
+          "adnName": "GDT",
+          "runtimeMode": "bidding",
+          "floorEcpm": 0,
+          "timeout": 6,
+          "placementId": "3395994137547804"
+        },
+        {
+          "sourceId": "baidu_it_bid",
+          "adnName": "Baidu",
+          "runtimeMode": "bidding",
+          "floorEcpm": 0,
+          "timeout": 6,
+          "placementId": "20155646"
+        },
+        {
+          "sourceId": "sigmob_it70",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 70,
+          "realEcpm": 70,
+          "priority": 1,
+          "timeout": 6,
+          "placementId": "sp104343aa5689"
+        },
+        {
+          "sourceId": "csj_it70",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 70,
+          "realEcpm": 70,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987912092"
+        },
+        {
+          "sourceId": "sigmob_it50",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 50,
+          "realEcpm": 50,
+          "priority": 1,
+          "timeout": 6,
+          "placementId": "sp104343b01771"
+        },
+        {
+          "sourceId": "csj_it50",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 50,
+          "realEcpm": 50,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987912093"
+        },
+        {
+          "sourceId": "sigmob_it30",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 30,
+          "realEcpm": 30,
+          "priority": 1,
+          "timeout": 6,
+          "placementId": "sp104343b3c020"
+        },
+        {
+          "sourceId": "csj_it30",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 30,
+          "realEcpm": 30,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987912094"
+        },
+        {
+          "sourceId": "sigmob_it0",
+          "adnName": "Sigmob",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 0,
+          "realEcpm": 0,
+          "priority": 1,
+          "timeout": 6,
+          "placementId": "sp10402967867a"
+        },
+        {
+          "sourceId": "csj_it0",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 0,
+          "realEcpm": 0,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "986908197"
+        }
+      ]
+    },
+    {
+      "slotName": "native_main",
+      "adType": "native_express",
+      "bidTimeout": 2,
+      "totalTimeout": 6,
+      "waterfallTimeout": 6,
+      "adSources": [
+        {
+          "sourceId": "gdt_native_bid",
+          "adnName": "GDT",
+          "runtimeMode": "bidding",
+          "floorEcpm": 0,
+          "timeout": 6,
+          "placementId": "6355293177655172"
+        },
+        {
+          "sourceId": "baidu_native_bid",
+          "adnName": "Baidu",
+          "runtimeMode": "bidding",
+          "floorEcpm": 0,
+          "timeout": 6,
+          "placementId": "20155638"
+        },
+        {
+          "sourceId": "csj_n70",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 70,
+          "realEcpm": 70,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987912087"
+        },
+        {
+          "sourceId": "csj_n50",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 50,
+          "realEcpm": 50,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987912088"
+        },
+        {
+          "sourceId": "csj_n30",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 30,
+          "realEcpm": 30,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "987912089"
+        },
+        {
+          "sourceId": "csj_n0",
+          "adnName": "CSJ",
+          "runtimeMode": "waterfall",
+          "floorEcpm": 0,
+          "realEcpm": 0,
+          "priority": 2,
+          "timeout": 6,
+          "placementId": "986908198"
+        }
+      ]
+    }
+  ]
+}

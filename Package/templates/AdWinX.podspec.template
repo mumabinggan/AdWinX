@@ -1,0 +1,39 @@
+#
+# AdWinX Core 二进制版 podspec（由 Package/build.sh 自动渲染，勿手改）
+# 版本号与源码版同步；本文件提交进仓库，随 tag 存在。
+#
+
+Pod::Spec.new do |s|
+  s.name             = 'AdWinX'
+  s.version          = '__VERSION__'
+  s.summary          = 'AdWinX 聚合 SDK Core（二进制分发）。'
+
+  s.description      = <<-DESC
+AdWinX 聚合 SDK 的核心模块：数据模型 / 配置体系 / 拍卖引擎 / 统一入口 / Adapter 自动发现注册，零 ADN SDK 依赖。
+本 pod 为二进制形态（xcframework），源码形态见仓库根目录 AdWinX.podspec。
+                       DESC
+
+  s.homepage         = 'https://github.com/mumabinggan/AdWinX'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'mumabinggan' => 'mumabinggan@163.com' }
+  # 二进制直链：GitHub Release 资产（zip 内含 podspec + xcframework + Assets，解压即 pod 根目录）
+  s.source           = { :http => 'https://github.com/mumabinggan/AdWinX/releases/download/__RELEASE_TAG__/AdWinX.xcframework.zip' }
+
+  s.ios.deployment_target = '12.0'
+
+  # 保留 Core subspec 名（业务方 pod 'AdWinX/Core' 写法不变）
+  s.subspec 'Core' do |ss|
+    # 二进制：源码版 source_files 的替代
+    ss.vendored_frameworks = 'AdWinX.xcframework'
+
+    # 资源（内置兜底配置 JSON 等）不进 framework，随 pod 以 bundle 分发
+    ss.resource_bundles = {
+      'AdWinX' => ['Assets/**/*']
+    }
+  end
+
+  s.default_subspecs = 'Core'
+
+  # 保 NSClassFromString 自动注册（二进制 pod 下 CocoaPods 不自动加 -ObjC）
+  s.user_target_xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
+end

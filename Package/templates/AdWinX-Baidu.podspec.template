@@ -1,0 +1,33 @@
+#
+# AdWinX-Baidu 二进制版 podspec（由 Package/build.sh 自动渲染，勿手改）
+# 版本号与源码版同步；本文件提交进仓库，随 tag 存在。
+#
+
+Pod::Spec.new do |s|
+  s.name             = 'AdWinX-Baidu'
+  s.version          = '__VERSION__'
+  s.summary          = 'AdWinX adapter for Baidu (百度联盟) — 二进制分发。'
+
+  s.description      = <<-DESC
+AdWinX 聚合 SDK 的百度（Baidu）Adapter，覆盖开屏/激励视频/信息流广告类型。
+本 pod 为二进制形态（xcframework），源码形态见仓库根目录 AdWinX-Baidu.podspec。
+                       DESC
+
+  s.homepage         = 'https://github.com/mumabinggan/AdWinX'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'mumabinggan' => 'mumabinggan@163.com' }
+  # 二进制直链：GitHub Release 资产（zip 内含 podspec + xcframework，解压即 pod 根目录）
+  s.source           = { :http => 'https://github.com/mumabinggan/AdWinX/releases/download/__RELEASE_TAG__/AdWinX-Baidu.xcframework.zip' }
+
+  s.ios.deployment_target = '12.0'
+
+  # 二进制：源码版 source_files 的替代
+  s.vendored_frameworks = 'AdWinX-Baidu.xcframework'
+
+  s.dependency 'AdWinX/Core'
+  # 三方约束与源码版一致
+  s.dependency 'BaiduMobAdSDK', '~> 10.0'
+
+  # 保 NSClassFromString 自动注册（二进制 pod 下 CocoaPods 不自动加 -ObjC）
+  s.user_target_xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
+end
